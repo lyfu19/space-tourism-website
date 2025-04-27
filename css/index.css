@@ -1,0 +1,637 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+}
+
+img,
+picture,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+p {
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+html {
+  background-color: #0b0d17;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+}
+
+.home-bg {
+  background-image: url(../assets/home/background-home-mobile.jpg);
+}
+
+.destination-bg {
+  background-image: url(../assets/destination/background-destination-mobile.jpg);
+}
+
+.crew-bg {
+  background-image: url(../assets/crew/background-crew-mobile.jpg);
+}
+
+.technology-bg {
+  background-image: url(../assets/technology/background-technology-mobile.jpg);
+}
+
+.mobile-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.nav-logo {
+  width: 40px;
+  height: auto;
+}
+
+.menu-button {
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+}
+
+.menu-button img {
+  width: 24px;
+  height: 21px;
+}
+
+.mobile-nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 254px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  background-color: rgba(11, 13, 23, 0.15);
+  backdrop-filter: blur(80px);
+  z-index: 999;
+}
+
+.close-button {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  top: 32px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu-container {
+  padding-top: 133px;
+  padding-left: 32px;
+}
+
+.close-button img {
+  width: 19.09px;
+  height: 19.09px;
+}
+
+.mobile-nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mobile-nav-list a {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  height: 100%;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.mobile-nav-list .nav-index {
+  font-weight: 700; /* bold */
+  letter-spacing: 2.7px;
+}
+
+.mobile-nav-list .nav-label {
+  font-weight: 400; /* regular */
+  letter-spacing: 2px;
+}
+
+.mobile-nav-list a.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background-color: white;
+}
+
+.desktop-nav-list li:first-child .nav-index {
+  display: none;
+}
+
+main {
+  flex: 1;
+  display: flex;
+}
+
+.home {
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.home-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0px;
+}
+
+.home-title span {
+  display: block;
+  font-size: 16px;
+  color: #d0d6f9;
+  letter-spacing: 2.35px;
+}
+
+.home-title strong {
+  display: block;
+  font-family: "Bellefair", serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin: 24px 0px;
+}
+
+.home-description {
+  color: #d0d6f9;
+  margin: 0px;
+  font-family: "Barlow", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.explore-wrapper {
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-shrink: 0;
+}
+
+.home-explore-button {
+  width: 144px;
+  height: 144px;
+  background-color: white;
+  border-radius: 50%;
+  color: #0b0d17;
+  font-family: "Bellefair", serif;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.destination {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.destination-title {
+  width: 100%;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.15rem;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  font-weight: 400;
+  margin: 0 auto;
+}
+
+.destination-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.destination-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 26.5px;
+}
+
+.destination-image {
+  width: 150px;
+  height: 150px;
+}
+
+.destination-title-number {
+  font-weight: 700;
+  opacity: 0.25;
+}
+
+.destination-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.destination-tabs {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+.destination-tabs li {
+  height: 100%;
+}
+
+.destination-tabs a {
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.15rem;
+  color: #d0d6f9;
+  height: 100%;
+  display: flex;
+}
+
+.destination-tabs a.active {
+  color: white;
+}
+
+.destination-tabs a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+}
+
+.destination-planet-name {
+  font-family: "Bellefair", serif;
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.destination-description {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  color: #d0d6f9;
+  line-height: 1.8;
+}
+
+.destination-divider {
+  background-color: white;
+  opacity: 0.25;
+  width: 100%;
+  height: 1px;
+}
+
+.destination-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.destination-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.destination-info-label {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #d0d6f9;
+}
+
+.destination-info-value {
+  font-family: "Bellefair", serif;
+  font-size: 28px;
+  letter-spacing: 0px;
+  color: white;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Tablet >= 768px */
+@media (min-width: 768px) {
+  .home-bg {
+    background-image: url(../assets/home/background-home-tablet.jpg);
+  }
+
+  .destination-bg {
+    background-image: url(../assets/destination/background-destination-tablet.jpg);
+  }
+
+  .crew-bg {
+    background-image: url(../assets/crew/background-crew-tablet.jpg);
+  }
+
+  .technology-bg {
+    background-image: url(../assets/technology/background-technology-tablet.jpg);
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    height: 96px;
+    padding-left: 40px;
+  }
+
+  .desktop-menu-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    margin-left: 40px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+  }
+
+  .desktop-nav-list {
+    display: flex;
+    gap: 40px;
+    margin-left: auto;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+  }
+
+  .desktop-nav-list a {
+    position: relative;
+    display: flex;
+    gap: 12px;
+    height: 100%;
+    align-items: center;
+    text-decoration: none;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .desktop-nav-list a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+  }
+
+  .nav-index {
+    font-weight: 700; /* bold */
+    letter-spacing: 2.7px;
+  }
+
+  .nav-label {
+    font-weight: 400; /* regular */
+    letter-spacing: 2px;
+  }
+
+  .home {
+    margin: 128px 40px;
+    padding: 0 88px;
+    gap: 48px;
+  }
+
+  .home-explore-button {
+    width: 272px;
+    height: 272px;
+  }
+
+  .home-title span {
+    font-size: 28px;
+    letter-spacing: 4px;
+  }
+
+  .home-title strong {
+    font-size: 144px;
+  }
+
+  .home-description {
+    font-size: 16px;
+  }
+
+  .mobile-nav-menu {
+    display: none;
+  }
+
+  .destination {
+    padding: 40px;
+  }
+
+  .destination-title {
+    font-size: 20px;
+    justify-content: flex-start;
+  }
+
+  .destination-image-wrapper {
+    padding: 42px;
+  }
+
+  .destination-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .destination-detail {
+    max-width: 514px;
+    width: 100%;
+    margin: 11.5px auto;
+  }
+
+  .destination-tabs a {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .destination-planet-name {
+    font-size: 80px;
+  }
+
+  .destination-description {
+    font-size: 16px;
+  }
+
+  .destination-info {
+    flex-direction: row;
+  }
+
+  .destination-info-section {
+    flex: 1;
+  }
+}
+
+/* Desktop >= 1024px */
+@media (min-width: 1440px) {
+  .home-bg {
+    background-image: url(../assets/home/background-home-desktop.jpg);
+  }
+
+  .destination-bg {
+    background-image: url(../assets/destination/background-destination-desktop.jpg);
+  }
+
+  .crew-bg {
+    background-image: url(../assets/crew/background-crew-desktop.jpg);
+  }
+
+  .technology-bg {
+    background-image: url(../assets/technology/background-technology-desktop.jpg);
+  }
+
+  .desktop-nav {
+    margin-top: 40px;
+  }
+
+  .line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.25);
+    flex: 1;
+    margin-left: 64px;
+    margin-right: -32px;
+    z-index: 1;
+  }
+
+  .desktop-menu-container {
+    flex: unset;
+    width: 736px;
+    margin-left: auto;
+  }
+
+  .desktop-nav-list li:first-child .nav-index {
+    display: inline;
+  }
+
+  .home {
+    margin: 0;
+    padding: 128px 165px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .home-text {
+    width: 540px;
+    height: 343px;
+  }
+
+  .explore-wrapper {
+    height: 343px;
+    flex: unset;
+  }
+
+  .home-description {
+    font-size: 18px;
+  }
+}

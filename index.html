@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Space tourism website</title>
+
+    <link rel="stylesheet" href="./css/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bellefair&family=Barlow+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="home-bg">
+    <h1 class="sr-only">Space Tourism Website</h1>
+    <header>
+      <div class="mobile-nav">
+        <img src="./assets/shared/logo.svg" alt="Logo" class="nav-logo" />
+        <button class="menu-button" id="menu-open">
+          <img src="./assets/shared/icon-hamburger.svg" alt="Menu" />
+        </button>
+      </div>
+
+      <nav class="desktop-nav">
+        <img src="./assets/shared/logo.svg" alt="Logo" class="logo" />
+        <div class="line"></div>
+        <div class="desktop-menu-container">
+          <ul class="desktop-nav-list">
+            <li>
+              <a href="#" class="active" data-page="home"
+                ><span class="nav-index">00</span
+                ><span class="nav-label">HOME</span></a
+              >
+            </li>
+            <li>
+              <a href="#" data-page="destination"
+                ><span class="nav-index">01</span
+                ><span class="nav-label">Destination</span></a
+              >
+            </li>
+            <li>
+              <a href="#" data-page="crew"
+                ><span class="nav-index">02</span
+                ><span class="nav-label">CREW</span></a
+              >
+            </li>
+            <li>
+              <a href="#" data-page="technology"
+                ><span class="nav-index">03</span
+                ><span class="nav-label">Technology</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <nav class="mobile-nav-menu hidden" id="mobile-menu">
+        <button class="close-button" id="menu-close" aria-label="Close menu">
+          <img src="./assets/shared/icon-close.svg" alt="close icon image" />
+        </button>
+        <div class="mobile-menu-container">
+          <ul class="mobile-nav-list">
+            <li>
+              <a href="#" class="active" data-page="home"
+                ><span class="nav-index">00</span
+                ><span class="nav-label">HOME</span></a
+              >
+            </li>
+            <li>
+              <a href="#" data-page="destination"
+                ><span class="nav-index">01</span
+                ><span class="nav-label">Destination</span></a
+              >
+            </li>
+            <li>
+              <a href="#" data-page="crew"
+                ><span class="nav-index">02</span
+                ><span class="nav-label">CREW</span></a
+              >
+            </li>
+            <li>
+              <a href="#" data-page="technology"
+                ><span class="nav-index">03</span
+                ><span class="nav-label">Technology</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- home -->
+      <section id="home" class="page-section home">
+        <div class="home-text">
+          <h2 class="home-title">
+            <span>SO, YOU WANT TO TRAVEL TO</span>
+            <strong>SPACE</strong>
+          </h2>
+          <p class="home-description">
+            Let’s face it; if you want to go to space, you might as well
+            genuinely go to outer space and not hover kind of on the edge of it.
+            Well sit back, and relax because we’ll give you a truly out of this
+            world experience!
+          </p>
+        </div>
+        <div class="explore-wrapper">
+          <a href="#" class="home-explore-button">EXPLORE</a>
+        </div>
+      </section>
+
+      <!-- destination -->
+      <section id="destination" class="page-section destination hidden">
+        <h2 class="destination-title">
+          <span class="destination-title-number">01</span>PICK YOUR DESTINATION
+        </h2>
+        <div class="destination-content">
+          <div class="destination-image-wrapper">
+            <img alt="destination planet image" class="destination-image" />
+          </div>
+          <div class="destination-detail">
+            <ul class="destination-tabs"></ul>
+            <div>
+              <p class="destination-planet-name"></p>
+              <p class="destination-description"></p>
+            </div>
+            <div class="destination-divider"></div>
+            <div class="destination-info">
+              <div class="destination-info-section">
+                <span class="destination-info-label">Avg. distance</span>
+                <span
+                  class="destination-info-value"
+                  id="destination-distance"
+                ></span>
+              </div>
+              <div class="destination-info-section">
+                <span class="destination-info-label">Est. travel time</span>
+                <span
+                  class="destination-info-value"
+                  id="destination-travel"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
