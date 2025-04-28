@@ -259,7 +259,7 @@ main {
 
 .destination {
   width: 100%;
-  padding: 24px;
+  margin: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -527,7 +527,7 @@ main {
   }
 
   .destination {
-    padding: 40px;
+    margin: 40px;
   }
 
   .destination-title {
@@ -564,6 +564,7 @@ main {
   }
 
   .destination-info {
+    width: 100%;
     flex-direction: row;
   }
 
@@ -573,7 +574,7 @@ main {
 }
 
 /* Desktop >= 1024px */
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .home-bg {
     background-image: url(../assets/home/background-home-desktop.jpg);
   }
@@ -633,5 +634,49 @@ main {
 
   .home-description {
     font-size: 18px;
+  }
+
+  .destination {
+    margin: 48px 165px;
+  }
+
+  .destination-title {
+    font-size: 28px;
+  }
+
+  .destination-content {
+    flex-direction: row;
+  }
+
+  .destination-image-wrapper {
+    padding: 0;
+    flex: 1;
+  }
+
+  .destination-image {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+  }
+
+  .destination-detail {
+    align-items: flex-start;
+    max-width: 445px;
+    margin: 133px 47px;
+    flex: 1;
+  }
+
+  .destination-planet-name {
+    text-align: left;
+    font-size: 96px;
+  }
+
+  .destination-description {
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .destination-info-section {
+    text-align: left;
   }
 }
