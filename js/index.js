@@ -1,7 +1,6 @@
 let navList;
 
-const defaultPage = 'destination';
-const defaultDestination = 'Moon';
+const defaultPage = 'crew';
 
 // load site data
 let siteData = {};
@@ -40,6 +39,14 @@ const showSection = (targetId) => {
 }
 
 const updateDestination = (name) => {
+  const tabs = document.querySelectorAll('.destination-tabs a');
+  tabs.forEach(tab => {
+    tab.classList.remove('active');
+    if (tab.dataset.planet.toLowerCase() === name.toLowerCase()) {
+      tab.classList.add('active');
+    }
+  });
+
   const destination = siteData.destinations.find(dest => dest.name.toLowerCase() === name.toLowerCase());
   if (destination) {
     document.querySelector('.destination-image').src = destination.images.png;
@@ -76,13 +83,82 @@ const setupDestinationTabEvents = () => {
   tabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
       e.preventDefault();
-
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const desName = tab.dataset.planet;
-      updateDestination(desName);
+      updateDestination(tab.dataset.planet);
     });
+  });
+}
+
+const renderCrewSection = () => {
+  const crewTrack = document.querySelector('#crew .crew-track');
+  crewTrack.innerHTML = '';
+
+  const crewDots = document.querySelector('#crew .crew-dots');
+  crewDots.innerHTML = '';
+  
+  siteData.crew.forEach((item, index) => {
+    const dot = document.createElement('button');
+    dot.classList.add('dot');
+
+    const memberDiv = document.createElement('div');
+    memberDiv.classList.add('crew-member');
+    if (index === 0) {
+      memberDiv.classList.add('active');
+      dot.classList.add('active');
+    }
+
+    const infoDiv = document.createElement('div');
+    infoDiv.classList.add('crew-info');
+
+    const roleP = document.createElement('p');
+    roleP.classList.add("crew-role");
+    roleP.textContent = item.role;
+
+    const h3Name = document.createElement('h3');
+    h3Name.classList.add('crew-name');
+    h3Name.textContent = item.name;
+
+    const descriptionP = document.createElement('p');
+    descriptionP.classList.add("crew-description");
+    descriptionP.textContent = item.bio;
+
+    infoDiv.appendChild(roleP);
+    infoDiv.appendChild(h3Name);
+    infoDiv.appendChild(descriptionP);
+
+    const portraitDiv = document.createElement('div');
+    portraitDiv.classList.add('crew-portrait-wrapper');
+
+    const img = document.createElement('img');
+    img.src = item.images.png;
+    img.alt = 'crew portrait';
+    img.classList.add('crew-portrait');
+
+    portraitDiv.appendChild(img);
+
+    memberDiv.appendChild(infoDiv);
+    memberDiv.appendChild(portraitDiv);
+
+    crewTrack.appendChild(memberDiv);
+    crewDots.append(dot);
+  });
+}
+
+const setupCrewPaginationEvents = () => {
+  document.querySelector('.crew-dots').addEventListener('click', (e) => {
+    if (!e.target.classList.contains('dot')) {
+      return;
+    }
+
+    const clickedDot = e.target;
+    const index = [...clickedDot.parentElement.children].indexOf(clickedDot);
+
+    const members = document.querySelectorAll(".crew-member");
+
+    document.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
+    members.forEach(m => m.classList.remove("active"));
+
+    clickedDot.classList.add('active');
+    members[index].classList.add('active');
   });
 }
 
@@ -90,7 +166,10 @@ const initPageData = (page) => {
   if (page === 'destination') {
     renderDestinationTabs();
     setupDestinationTabEvents();
-    updateDestination(defaultDestination);
+    updateDestination(siteData.destinations[0].name);
+  } else if (page === 'crew') {
+    renderCrewSection();
+    setupCrewPaginationEvents();
   }
 }
 
@@ -102,6 +181,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   showSection(defaultPage);
   initPageData(defaultPage);
 
+  // navigation
   navList.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -124,4 +204,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   closeBtn.addEventListener("click", () => {
     menu.classList.add("hidden");
   });
+
+  // crew
+  
 });
