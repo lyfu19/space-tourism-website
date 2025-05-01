@@ -259,7 +259,7 @@ main {
 
 .section {
   width: 100%;
-  margin: 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -424,15 +424,22 @@ main {
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  overflow: auto hidden;
+  scroll-snap-type: x mandatory;
+  /* ✅ 隐藏滚动条的兼容写法 */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.crew-track::-webkit-scrollbar {
+  display: none;  /* WebKit 浏览器（Chrome、Safari） */
 }
 
 .crew-member {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
   height: 100%;
-  display: none;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.crew-member.active {
   display: flex;
   flex-direction: column;
 }
@@ -636,7 +643,7 @@ main {
   }
 
   .section {
-    margin: 40px;
+    padding: 40px;
   }
 
   .section-title {
@@ -746,7 +753,7 @@ main {
   }
 
   .section {
-    margin: 48px 165px;
+    padding: 48px 165px;
   }
 
   .section-title {

@@ -1,6 +1,22 @@
 let navList;
-
 const defaultPage = 'crew';
+
+// Scroll tracking flags
+let isProgrammaticScroll = false; // Indicates whether current scroll is triggered programmatically
+let programmaticTargetIndex = null; // Index of the intended scroll target (used to block scroll-triggered updates)
+
+const throttle = (fn, delay) => {
+  let lastCall = 0;
+
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+
+      fn.apply(this, args);
+    }
+  };
+}
 
 // load site data
 let siteData = {};
@@ -78,14 +94,15 @@ const renderDestinationTabs = () => {
 }
 
 const setupDestinationTabEvents = () => {
-  const tabs = document.querySelectorAll('.destination-tabs a');
+  document.querySelector('.destination-tabs').addEventListener("click", (e) => {
+    if (!e.target.closest('a')) {
+      return;
+    }
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', (e) => {
-      e.preventDefault();
-      updateDestination(tab.dataset.planet);
-    });
+    e.preventDefault();
+    updateDestination(e.target.dataset.planet);
   });
+
 }
 
 const renderCrewSection = () => {
@@ -94,7 +111,7 @@ const renderCrewSection = () => {
 
   const crewDots = document.querySelector('#crew .crew-dots');
   crewDots.innerHTML = '';
-  
+
   siteData.crew.forEach((item, index) => {
     const dot = document.createElement('button');
     dot.classList.add('dot');
@@ -102,7 +119,6 @@ const renderCrewSection = () => {
     const memberDiv = document.createElement('div');
     memberDiv.classList.add('crew-member');
     if (index === 0) {
-      memberDiv.classList.add('active');
       dot.classList.add('active');
     }
 
@@ -144,22 +160,56 @@ const renderCrewSection = () => {
 }
 
 const setupCrewPaginationEvents = () => {
+  const crewTrack = document.querySelector('.crew-track');
+  const crewMembers = document.querySelectorAll('.crew-member');
+  const dots = document.querySelectorAll('.dot');
+
+  // Click dot to scroll to the corresponding crew member
   document.querySelector('.crew-dots').addEventListener('click', (e) => {
-    if (!e.target.classList.contains('dot')) {
-      return;
-    }
+    if (!e.target.classList.contains('dot')) return;
 
     const clickedDot = e.target;
-    const index = [...clickedDot.parentElement.children].indexOf(clickedDot);
+    const index = [...dots].indexOf(clickedDot);
 
-    const members = document.querySelectorAll(".crew-member");
+    isProgrammaticScroll = true;
+    programmaticTargetIndex = index;
 
-    document.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
-    members.forEach(m => m.classList.remove("active"));
+    crewMembers[index].scrollIntoView({ behavior: "smooth", inline: "start" });
 
-    clickedDot.classList.add('active');
-    members[index].classList.add('active');
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', index === i);
+    });
   });
+
+  // Scroll event to sync dot highlight with visible member
+  crewTrack.addEventListener('scroll', throttle(() => {
+    const trackRect = crewTrack.getBoundingClientRect();
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    crewMembers.forEach((member, index) => {
+      const rect = member.getBoundingClientRect();
+      const distance = Math.abs(rect.left - trackRect.left);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    // If programmatic scroll reached the target, end programmatic state
+    if (isProgrammaticScroll && closestIndex === programmaticTargetIndex) {
+      isProgrammaticScroll = false;
+      programmaticTargetIndex = null;
+    }
+
+    // If scroll is not programmatic, update active dot
+    if (!isProgrammaticScroll) {
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === closestIndex);
+      });
+    }
+  }, 100));
 }
 
 const initPageData = (page) => {
@@ -204,7 +254,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   closeBtn.addEventListener("click", () => {
     menu.classList.add("hidden");
   });
-
-  // crew
-  
 });
