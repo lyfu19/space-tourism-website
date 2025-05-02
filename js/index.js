@@ -117,7 +117,7 @@ const renderCrewSection = () => {
     dot.classList.add('dot');
 
     const memberDiv = document.createElement('div');
-    memberDiv.classList.add('crew-member');
+    memberDiv.classList.add('crew-info-wrapper');
     if (index === 0) {
       dot.classList.add('active');
     }
@@ -134,7 +134,7 @@ const renderCrewSection = () => {
     h3Name.textContent = item.name;
 
     const descriptionP = document.createElement('p');
-    descriptionP.classList.add("crew-description");
+    descriptionP.classList.add("crew-bio");
     descriptionP.textContent = item.bio;
 
     infoDiv.appendChild(roleP);
@@ -154,7 +154,12 @@ const renderCrewSection = () => {
     memberDiv.appendChild(infoDiv);
     memberDiv.appendChild(portraitDiv);
 
-    crewTrack.appendChild(memberDiv);
+    const memberContainer = document.createElement('div');
+    memberContainer.classList.add('crew-member');
+    memberContainer.appendChild(memberDiv);
+
+
+    crewTrack.appendChild(memberContainer);
     crewDots.append(dot);
   });
 }

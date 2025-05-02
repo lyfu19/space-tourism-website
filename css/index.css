@@ -407,14 +407,6 @@ main {
   color: white;
 }
 
-.desktop-nav {
-  display: none;
-}
-
-.hidden {
-  display: none;
-}
-
 .crew-wrapper {
   position: relative;
   height: 100%;
@@ -439,6 +431,11 @@ main {
 .crew-member {
   flex: 0 0 100%;
   scroll-snap-align: start;
+  height: 100%;
+}
+
+.crew-info-wrapper {
+  padding: 0 24px 24px 24px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -469,7 +466,7 @@ main {
   text-transform: uppercase;
 }
 
-.crew-description {
+.crew-bio {
   color: #D0D6F9;
   font-family: "Barlow", sans-serif;
   font-size: 15px;
@@ -478,12 +475,14 @@ main {
 
 .crew-portrait-wrapper {
   width: 100%;
-  height: 350px;
+  aspect-ratio: 327 / 350;
+  overflow: hidden;
 }
 
 .crew-portrait {
   width: auto;
   height: 100%;
+  object-fit: cover;
   margin: 5px auto;
 
   mask-image: linear-gradient(
@@ -529,6 +528,18 @@ main {
 
 .dot.active {
   background-color: white;
+}
+
+#crew.section {
+  padding: 24px 0 0 0;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Tablet >= 768px */
@@ -686,6 +697,49 @@ main {
 
   .destination-info-section {
     flex: 1;
+  }
+
+  #crew.section {
+    padding: 40px 0 0 0;
+  }
+
+  .section-title {
+    padding: 0 40px;
+  }
+
+  .crew-info-wrapper {
+    padding: 0 40px;
+  }
+
+  .crew-info {
+    margin-left: 88px;
+    margin-right: 88px;
+  }
+
+  .crew-role {
+    font-size: 24px;
+  }
+
+  .crew-name {
+    margin-top: 16px;
+    font-size: 40px;
+  }
+
+  .crew-bio {
+    font-size: 16px;
+  }
+
+  .crew-portrait-wrapper {
+    aspect-ratio: 688 / 503;
+  }
+
+  .crew-portrait {
+    width: 58%;
+    height: auto;
+  }
+
+  .crew-dots {
+    top: 295px;
   }
 }
 
