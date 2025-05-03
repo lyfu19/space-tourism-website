@@ -517,8 +517,8 @@ main {
 }
 
 .dot {
-  width: 10px;
   height: 10px;
+  aspect-ratio: 1;
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -703,7 +703,7 @@ main {
     padding: 40px 0 0 0;
   }
 
-  .section-title {
+  #crew .section-title {
     padding: 0 40px;
   }
 
@@ -848,5 +848,66 @@ main {
 
   .destination-info-section {
     text-align: left;
+  }
+
+  #crew.section {
+    padding: 48px 0;
+  }
+
+  #crew .section-title {
+    padding: 0 165px;
+  }
+
+  .crew-info-wrapper {
+    padding: 0 165px;
+    flex-direction: row;
+    gap: 32px;
+  }
+  
+  .crew-info {
+    flex: 1;
+    text-align: left;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 103px;
+  }
+
+  .crew-portrait-wrapper {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .crew-role {
+    font-size: 32px;
+  }
+
+  .crew-name {
+    font-size: 56px;
+  }
+
+  .crew-bio {
+    font-size: 18px;
+  }
+
+  .crew-portrait {
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    padding: 29.5px 0;
+  }
+
+  .crew-dots {
+    position: absolute;
+    top: unset;
+    bottom: 48px;
+    left: 165px;
+    transform: unset;
+    gap: 40px;
+  }
+
+  .dot {
+    height: 15px;
   }
 }
