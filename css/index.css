@@ -595,6 +595,7 @@ main {
   margin-top: 16px;
   font-size: 24px;
   color: white;
+  text-transform: uppercase;
 }
 
 .technology-description {
@@ -811,6 +812,43 @@ main {
 
   .crew-dots {
     top: 295px;
+  }
+
+  #technology .section-content {
+    padding-bottom: 0;
+    height: 85%;
+  }
+
+  .technology-image-wrapper {
+    flex: 421;
+  }
+  
+  .technology-detail {
+    flex: 347;
+    padding: 0 88px;
+  }
+
+  .technology-image {
+    margin: 0 -40px;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 768 / 357;
+  }
+
+  .technology-indicator-container {
+    height: 56px;
+  }
+
+  .technology-subtitle {
+    font-size: 24px;
+  }
+
+  .technology-name {
+    font-size: 40px;
+  }
+
+  .technology-description {
+    font-size: 16px;
   }
 }
 
