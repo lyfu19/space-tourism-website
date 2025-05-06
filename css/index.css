@@ -1019,4 +1019,62 @@ main {
   .dot {
     height: 15px;
   }
+
+  #technology.section {
+    padding-right: 0;
+  }
+
+  #technology .section-content {
+    flex-direction: row-reverse;
+  }
+
+  .technology-image-wrapper {
+    flex: 608;
+  }
+
+  .technology-image {
+    width: 100%;
+    aspect-ratio: 608 / 600;
+    margin: auto 0;
+  }
+  
+  .technology-detail {
+    flex: 635;
+    padding: 0;
+    display: flex;
+    gap: 64px;
+  }
+
+  .technology-indicator-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 80px;
+    min-width: 80px
+  }
+
+  .technology-indicator {
+    width: 100%;
+    height: auto;
+  }
+
+  .technology-info-wrapper {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .technology-subtitle {
+    margin-top: 0;
+    font-size: 32px;
+  }
+
+  .technology-name {
+    font-size: 56px;
+  }
+
+  .technology-description {
+    font-size: 18px;
+  }
 }

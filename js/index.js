@@ -146,6 +146,7 @@ const renderCrewSection = () => {
     const img = document.createElement('img');
     img.src = item.images.png;
     img.alt = 'crew portrait';
+    img.style.objectFit = 'contain';
     img.classList.add('crew-portrait');
 
     portraitDiv.appendChild(img);
