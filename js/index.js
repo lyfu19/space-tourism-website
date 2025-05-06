@@ -1,5 +1,5 @@
 let navList;
-const defaultPage = 'crew';
+const defaultPage = 'technology';
 
 // Scroll tracking flags
 let isProgrammaticScroll = false; // Indicates whether current scroll is triggered programmatically
@@ -102,7 +102,6 @@ const setupDestinationTabEvents = () => {
     e.preventDefault();
     updateDestination(e.target.dataset.planet);
   });
-
 }
 
 const renderCrewSection = () => {
@@ -217,6 +216,44 @@ const setupCrewPaginationEvents = () => {
   }, 100));
 }
 
+const renderTechnologyTabs = () => {
+  const container = document.querySelector(".technology-indicator-container");
+  container.innerHTML = '';
+
+  siteData.technology.forEach((tech, index) => {
+    const button = document.createElement("button");
+    button.classList.add("technology-indicator");
+    button.textContent = index + 1;
+    button.dataset.technology = tech.name;
+    container.appendChild(button);
+  });
+}
+
+const setupTechnologyTabEvents = () => {
+  document.querySelector(".technology-indicator-container").addEventListener("click", (e) => {
+    if (!e.target.closest('button')) {
+      return;
+    }
+
+    e.preventDefault();
+    updateTechnology(e.target.dataset.technology);
+  });
+}
+
+const updateTechnology = (name) => {
+  const buttons = document.querySelectorAll('.technology-indicator');
+  buttons.forEach((btn) => {
+    btn.classList.toggle('active', name.toLowerCase() === btn.dataset.technology.toLowerCase());
+  });
+
+  const technology = siteData.technology.find(t => t.name.toLowerCase() === name.toLowerCase());
+  if (technology) {
+    document.querySelector('.technology-image').src = technology.images.portrait;
+    document.querySelector('.technology-name').textContent = technology.name;
+    document.querySelector('.technology-description').textContent = technology.description;
+  }
+}
+
 const initPageData = (page) => {
   if (page === 'destination') {
     renderDestinationTabs();
@@ -225,6 +262,10 @@ const initPageData = (page) => {
   } else if (page === 'crew') {
     renderCrewSection();
     setupCrewPaginationEvents();
+  } else if (page === 'technology') {
+    renderTechnologyTabs();
+    setupTechnologyTabEvents();
+    updateTechnology(siteData.technology[0].name);
   }
 }
 

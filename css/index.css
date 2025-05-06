@@ -534,6 +534,77 @@ main {
   padding: 24px 0 0 0;
 }
 
+#technology .section-content {
+  flex: 1;
+  padding-bottom: 24px;
+}
+
+.technology-image-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.technology-image {
+  max-width: none;
+  width: 100vw;
+  margin: 0 -24px;
+  height: 258px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.technology-detail {
+  flex: 1;
+  font-family: "Bellefair", serif;
+  text-align: center;
+  letter-spacing: 0px;
+}
+
+.technology-indicator-container {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.technology-indicator {
+  height: 100%;
+  aspect-ratio: 1;
+  margin: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 18px;
+}
+
+.technology-indicator.active {
+  background-color: white;
+  color: #0B0D17;
+}
+
+.technology-subtitle {
+  margin-top: 40px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.technology-name {
+  margin-top: 16px;
+  font-size: 24px;
+  color: white;
+}
+
+.technology-description {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.8;
+  font-family: "Barlow", sans-serif;
+  color: #D0D6F9;
+}
+
 .desktop-nav {
   display: none;
 }
