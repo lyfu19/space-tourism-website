@@ -4,8 +4,8 @@ This is my solution to the [Space Tourism multi-page website challenge](https://
 
 ## 🔗 Live Preview
 
-- [Live Site URL](https://your-deployment-link.com)
-- [Frontend Mentor Submission](https://www.frontendmentor.io/solutions/your-solution-url)
+- [Live Site URL](https://polite-horse-31cabe.netlify.app/)
+- [Frontend Mentor Submission](https://www.frontendmentor.io/solutions/responsive-space-tourism-website-using-html-css-and-vanilla-js-FEMIp7cFAk)
 
 ## 🖼️ Screenshot
 
