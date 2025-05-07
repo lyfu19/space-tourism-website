@@ -1,5 +1,5 @@
 let navList;
-const defaultPage = 'technology';
+const defaultPage = 'home';
 
 // Scroll tracking flags
 let isProgrammaticScroll = false; // Indicates whether current scroll is triggered programmatically
